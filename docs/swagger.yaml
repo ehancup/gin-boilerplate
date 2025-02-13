@@ -1,0 +1,61 @@
+definitions:
+  example.Payload:
+    properties:
+      email:
+        type: string
+      name:
+        minLength: 4
+        type: string
+    required:
+    - email
+    - name
+    type: object
+host: localhost:3000
+info:
+  contact:
+    email: rhanysuf24@gmail.com
+    name: Ehancup
+    url: http://www.swagger.io/support
+  description: This is a Gin Boilerplate for Rest API.
+  termsOfService: http://swagger.io/terms/
+  title: Gin Boilerplate
+  version: "1.0"
+paths:
+  /payload:
+    post:
+      consumes:
+      - application/json
+      description: example. getting value from json form
+      parameters:
+      - description: payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/example.Payload'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/example.Payload'
+      summary: Accept Payload
+      tags:
+      - example
+  /say-hello:
+    get:
+      consumes:
+      - application/json
+      description: example. return "hello world!"
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: hello world!
+          schema:
+            type: string
+      summary: Say Hello
+      tags:
+      - example
+swagger: "2.0"

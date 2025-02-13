@@ -1,0 +1,92 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a Gin Boilerplate for Rest API.",
+        "title": "Gin Boilerplate",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "Ehancup",
+            "url": "http://www.swagger.io/support",
+            "email": "rhanysuf24@gmail.com"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:3000",
+    "paths": {
+        "/payload": {
+            "post": {
+                "description": "example. getting value from json form",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "example"
+                ],
+                "summary": "Accept Payload",
+                "parameters": [
+                    {
+                        "description": "payload",
+                        "name": "payload",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/example.Payload"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/example.Payload"
+                        }
+                    }
+                }
+            }
+        },
+        "/say-hello": {
+            "get": {
+                "description": "example. return \"hello world!\"",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "example"
+                ],
+                "summary": "Say Hello",
+                "responses": {
+                    "200": {
+                        "description": "hello world!",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "example.Payload": {
+            "type": "object",
+            "required": [
+                "email",
+                "name"
+            ],
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string",
+                    "minLength": 4
+                }
+            }
+        }
+    }
+}
